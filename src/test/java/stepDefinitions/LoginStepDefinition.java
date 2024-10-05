@@ -41,7 +41,7 @@ public class LoginStepDefinition
         String actual_output = loginPage.logoutButton.getText();
         String expected ="Log out";
         Assert.assertEquals(expected,actual_output);
-        driver.quit();//close browser
+        driver.quit();//close browser..
 
     }
     @After
