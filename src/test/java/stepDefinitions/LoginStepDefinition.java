@@ -48,7 +48,7 @@ public class LoginStepDefinition
     public void takeScreenshot(Scenario scenario) {
         if (scenario.isFailed()) {
             final byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
-            scenario.attach(screenshot, "image/png", scenario.getName());//m
+            scenario.attach(screenshot, "image/png", scenario.getName());//testing
         }
 
 }}
