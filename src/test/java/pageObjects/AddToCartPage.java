@@ -70,7 +70,7 @@ public class AddToCartPage
     public WebElement display_order;
 
     @FindBy(xpath = "//li[contains(text(),'Order number')]")
-    public WebElement successText;
+    public WebElement success_text;
 
     public AddToCartPage(WebDriver driver)
     {

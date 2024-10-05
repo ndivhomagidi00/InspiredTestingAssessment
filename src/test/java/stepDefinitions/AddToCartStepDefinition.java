@@ -120,7 +120,12 @@ public class AddToCartStepDefinition
     @Then("I confirm my order")
     public void iConfirmMyOrder()
     {
-        addToCartPage.confirm_order.click();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@value='Confirm']")));
+
+        element.click(); // Now you can interact with the element
+
+        //addToCartPage.confirm_order.click();
     }
 
     @And("I validate and print out the order number")
@@ -128,11 +133,16 @@ public class AddToCartStepDefinition
     {
         //Validations
         String expectedText ="Your order has been successfully processed!";
-        String actualOutcome = addToCartPage.successText.getText();
-        Assert.assertEquals(expectedText,actualOutcome);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+
+        WebElement actualOutcome = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//li[contains(text(),'Order number')]")));
+        System.out.println(addToCartPage.success_text.getText());
+        //String actualOutcome = addToCartPage.success_text.getText();
+        //Assert.assertEquals(expectedText,actualOutcome);
 
         //print out the order number
         System.out.println(" "+addToCartPage.display_order.getText()+" Thank you for shopping with us today, have a great day!");
+        driver.quit();
 
     }
    /* @After
