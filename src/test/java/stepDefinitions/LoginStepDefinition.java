@@ -31,7 +31,7 @@ public class LoginStepDefinition
         //Capture the login credentials and click the login button
         loginPage.username_field.sendKeys(email);
         loginPage.password_field.sendKeys(password);
-        loginPage.loginButton.click();
+        loginPage.loginButton.click();//clicked the login button
     }
 
     @Then("I validate using logout button")
