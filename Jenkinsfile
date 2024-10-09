@@ -1,24 +1,24 @@
 pipeline {
-    agent any
+    agent any  // General agent for the pipeline
 
     stages {
         stage('Build') {
-            agent{
-            docker{
+            agent {  // Specify agent for this particular stage
+                docker {
                     image 'node:18-alpine'
                     reuseNode true
+                }
             }
             steps {
-               sh '''
-                   ls -la
-                   node --version
-                   npm --version
-                   npm ci
-                   npm run build
-                   ls -la
-               '''
+                sh '''
+                    ls -la
+                    node --version
+                    npm --version
+                    npm ci
+                    npm run build
+                    ls -la
+                '''
             }
         }
     }
-}
 }
