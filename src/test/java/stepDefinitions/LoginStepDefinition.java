@@ -21,7 +21,7 @@ public class LoginStepDefinition
         String url = "https://demowebshop.tricentis.com/login";
         driver = new ChromeDriver();
         driver.get(url);
-        driver.manage().window().maximize();
+        driver.manage().window().maximize();//maximize screen
         loginPage = new LoginPage(driver);
     }
 
