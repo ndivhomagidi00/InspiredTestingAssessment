@@ -142,7 +142,7 @@ public class AddToCartStepDefinition
 
         //print out the order number
         System.out.println(" "+addToCartPage.display_order.getText()+" Thank you for shopping with us today, have a great day!");
-        driver.quit();
+        driver.quit();//
 
     }
    /* @After
