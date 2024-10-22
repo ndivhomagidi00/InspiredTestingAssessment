@@ -105,6 +105,7 @@ public class AddToCartStepDefinition
 
     @And("I click continue button")
     public void iClickContinueButton() throws InterruptedException {
+
         //Please note that had the elements looked the same, I would have implemented a loop to take care of these clicks..
         addToCartPage.continue_button.click();
         Thread.sleep(2000);
