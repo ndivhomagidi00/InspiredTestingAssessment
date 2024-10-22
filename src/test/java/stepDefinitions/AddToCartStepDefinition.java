@@ -155,5 +155,4 @@ public class AddToCartStepDefinition
             scenario.attach(screenshot, "image/png", scenario.getName());
         }
     }*/
-
 }
