@@ -62,7 +62,7 @@ public class AddToCartStepDefinition
     @Then("I click build my own cheap computer")
     public void iClickBuildMyOwnCheapComputer()
     {
-        //clicking this element using JS
+        //clicking this element using JS..
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].click();",  addToCartPage.build_your_own_cheap_computer);
 
