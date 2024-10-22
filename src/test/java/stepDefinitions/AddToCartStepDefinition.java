@@ -93,6 +93,8 @@ public class AddToCartStepDefinition
         //Capture the billing details
         String billing_country ="South Africa";
         Select dropDownOption = new Select(addToCartPage.billing_country_dropDown);
+
+        //The below code seems to have been removed on the system..hence it's commented out
         //Thread.sleep(200);
         //dropDownOption.selectByVisibleText(billing_country);
 
