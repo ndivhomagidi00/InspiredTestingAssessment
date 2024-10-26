@@ -1,33 +1,50 @@
 pipeline {
     agent any
 
-    stages {
-        stage('Build') {
-            agent { 
-                docker {
-                    image 'node:18-alpine'
-                    reuseNode true
-                }
-            }
-            steps {
-                script {
-                    // Adjust the workspace path if running on Windows
-                    def workspace = isUnix() ? pwd() : pwd().replaceAll('C:', '/c').replaceAll('\\\\', '/')
-                    echo "Using workspace: ${workspace}"
-                    
-                    // Run the steps inside the Docker container
-                    docker.image('node:18-alpine').inside("-w ${workspace}") {
-                        sh '''
-                            ls -la
-                            node --version
-                            npm --version
-                            npm ci
-                            npm run build
-                            ls -la
-                        '''
-                    }
-                }
-            }
-        }
+    tools {
+        // Install the Maven version configured as "M3" and add it to the path.
+       // maven "M3"
+       maven "Maven_Home"
     }
-}
+
+    stages {
+        stage('Stage 1- Checkout code') {
+            steps {
+                // Get some code from a GitHub repository
+                git 'https://github.com/ndivhomagidi00/InspiredTestingAssessment.git'
+
+            }
+
+           
+        }
+         stage('Stage 2- Compile code') {
+            steps {
+                // Get some code from a GitHub repository
+               bat "mvn clean compile"
+
+            }
+
+           
+        }
+         stage('Stage 3- Run Test') {
+            steps {
+                // Get some code from a GitHub repository
+               bat "mvn test"
+
+            }
+
+           
+        }
+         stage('Stage 4- Deploy') {
+            steps {
+                // Get some code from a GitHub repository
+               //bat "mvn clean pacakage"
+               echo 'Done'
+
+            }
+   
+           
+        }
+     
+    }
+}//done
