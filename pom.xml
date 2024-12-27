@@ -37,13 +37,36 @@
             <version>7.18.1</version>
             <scope>test</scope>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.apache.maven/maven-core -->
         <dependency>
             <groupId>org.apache.maven</groupId>
             <artifactId>maven-core</artifactId>
             <version>4.0.0-rc-1</version>
         </dependency>
-
     </dependencies>
+
+    <build>
+        <plugins>
+            <!-- Exec Maven Plugin to run a pre-build command -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.0.0</version>
+                <executions>
+                    <execution>
+                        <phase>initialize</phase> <!-- Runs before the compile phase -->
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>your-command</executable>
+                            <arguments>
+                                <argument>your-arguments</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
